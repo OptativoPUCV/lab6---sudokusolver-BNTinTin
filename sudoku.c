@@ -13,15 +13,8 @@ Node* createNode(){
 }
 
 Node* copy(Node* n){
-    Node* new = (Node*)malloc(sizeof(Node));
-    if (new == NULL) {
-        exit(EXIT_FAILURE);
-    }
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            new->sudo[i][j] = n->sudo[i][j];
-        }
-    }
+    Node* new=(Node*) malloc(sizeof(Node));
+    *new = *n;
     return new;
 }
 
