@@ -116,3 +116,9 @@ sudoku.c:102:13: error: unused variable ‘n’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 75e9cbf
+Mon 20 May 2024 01:44:29 AM UTC: 
+ sudoku.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+ tests:  6|2
+total_score: 45/70
+f9f2473
