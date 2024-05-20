@@ -63,23 +63,46 @@ int is_valid(Node* n){
 
 List* get_adj_nodes(Node* n){
    List* list = createList();
-   if (list == NULL) {
-      exit(EXIT_FAILURE);
-   }
+   int casillaInicial = 0;
    for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
-         if (n->sudo[i][j] == 0) {
-            Node* adj = copy(n);
-            if (adj == NULL) {
-               exit(EXIT_FAILURE);
+         if (n->sudo[i][j] == 0 && casillaInicial == 0) {
+            casillaInicial = 1;
+            for (int k = 1; k <= 9; k++) {
+               Node* adj = copy(n);
+               adj->sudo[i][j] = k;
+               if (is_valid(adj) && casillaInicial == 1) {
+                  pushBack(list, adj);
+               }
             }
-            adj->sudo[i][j] = 1;
-            pushBack(list, adj);
          }
       }
     }
    return list;
 }
+
+/*
+ List* list=createList();
+   int i,j, k;
+   int primeraCasilla = 0;
+   for (i = 0 ; i < 9 ; i++){
+      for (j = 0 ; j < 9 ; j++){
+         if (n->sudo[i][j] == 0 && primeraCasilla == 0){
+            primeraCasilla = 1;
+            for (k = 1 ; k < 10 ; k++){
+               Node* adj = copy(n);
+               adj->sudo[i][j] = k;
+               if (is_valid(adj) && primeraCasilla == 1){
+                  pushBack(list, adj);
+               }
+            }
+         }
+      }
+   }
+   return list;
+}
+
+*/
 
 int is_final(Node* n){
     
