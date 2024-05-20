@@ -96,28 +96,13 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
-       Stack* stack = createStack();
-       push(&stack, initial);
-
-       while (!isStackEmpty(stack)) {
-           Node* current = pop(&stack);
-
-           if (is_final(current)) {
-               return current;
-           }
-
-           List* adj_nodes = get_adj_nodes(current);
-           for (Node* adj = first(adj_nodes); adj != NULL; adj = next(adj_nodes)) {
-               push(&stack, adj);
-           }
-           // Liberar la memoria de la lista de adyacencia
-           freeList(adj_nodes);
-       }
-
-       return NULL; // No se encontró solución
+   Stack* S = createStack();
+   push(S, initial);
+   while (get_size(S) != 0) {
+      Node* n = top(S);
    }
-
-
+   return 0;
+}
 
 /*
 int main( int argc, char *argv[] ){

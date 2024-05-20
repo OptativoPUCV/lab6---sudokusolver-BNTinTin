@@ -105,3 +105,14 @@ sudoku.c:114:12: error: implicit declaration of function ‘freeList’; did you
 cc1: all warnings being treated as errors
 Compilation failed
 6438775
+Mon 20 May 2024 01:42:07 AM UTC: 
+ sudoku.c | 25 +++++--------------------
+ 1 file changed, 5 insertions(+), 20 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:102:13: error: unused variable ‘n’ [-Werror=unused-variable]
+  102 |       Node* n = top(S);
+      |             ^
+cc1: all warnings being treated as errors
+Compilation failed
+75e9cbf
