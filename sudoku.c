@@ -43,6 +43,11 @@ void print_node(Node* n){
     printf("\n");
 }
 
+int is_valid(Node* n){
+
+    return 1;
+}
+
 List* get_adj_nodes(Node* n){
    List* list = createList();
    if (list == NULL) {
@@ -61,11 +66,6 @@ List* get_adj_nodes(Node* n){
       }
     }
    return list;
-}
-
-int is_valid(Node* n){
-
-    return 1;
 }
 
 int is_final(Node* n){
