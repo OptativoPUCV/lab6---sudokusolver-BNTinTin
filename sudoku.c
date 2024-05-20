@@ -71,7 +71,7 @@ List* get_adj_nodes(Node* n){
             for (int k = 1; k <= 9; k++) {
                Node* adj = copy(n);
                adj->sudo[i][j] = k;
-               if (is_valid(adj) && casillaInicial == 1) {
+               if (is_valid(adj) && casillaInicial == 1 ) {
                   pushBack(list, adj);
                }
             }
@@ -96,9 +96,26 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+       Stack* stack = createStack();
+       push(&stack, initial);
 
-   return NULL;
-}
+       while (!isStackEmpty(stack)) {
+           Node* current = pop(&stack);
+
+           if (is_final(current)) {
+               return current;
+           }
+
+           List* adj_nodes = get_adj_nodes(current);
+           for (Node* adj = first(adj_nodes); adj != NULL; adj = next(adj_nodes)) {
+               push(&stack, adj);
+           }
+           // Liberar la memoria de la lista de adyacencia
+           freeList(adj_nodes);
+       }
+
+       return NULL; // No se encontró solución
+   }
 
 
 

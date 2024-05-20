@@ -57,3 +57,51 @@ Mon 20 May 2024 01:35:09 AM UTC:
  tests:  6|2
 total_score: 45/70
 a57e4ae
+Mon 20 May 2024 01:40:39 AM UTC: 
+ sudoku.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:100:13: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  100 |        push(&stack, initial);
+      |             ^~~~~~
+      |             |
+      |             Stack ** {aka List **}
+In file included from test.c:4:
+list.h:33:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘Stack **’ {aka ‘List **’}
+   33 | void push(Stack* s, void* data);
+      |           ~~~~~~~^
+In file included from test.c:5:
+sudoku.c:102:16: error: implicit declaration of function ‘isStackEmpty’ [-Werror=implicit-function-declaration]
+  102 |        while (!isStackEmpty(stack)) {
+      |                ^~~~~~~~~~~~
+sudoku.c:103:32: error: passing argument 1 of ‘pop’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  103 |            Node* current = pop(&stack);
+      |                                ^~~~~~
+      |                                |
+      |                                Stack ** {aka List **}
+In file included from test.c:4:
+list.h:31:17: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘Stack **’ {aka ‘List **’}
+   31 | void pop(Stack* s);
+      |          ~~~~~~~^
+In file included from test.c:5:
+sudoku.c:103:28: error: void value not ignored as it ought to be
+  103 |            Node* current = pop(&stack);
+      |                            ^~~
+sudoku.c:111:21: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  111 |                push(&stack, adj);
+      |                     ^~~~~~
+      |                     |
+      |                     Stack ** {aka List **}
+In file included from test.c:4:
+list.h:33:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘Stack **’ {aka ‘List **’}
+   33 | void push(Stack* s, void* data);
+      |           ~~~~~~~^
+In file included from test.c:5:
+sudoku.c:114:12: error: implicit declaration of function ‘freeList’; did you mean ‘createList’? [-Werror=implicit-function-declaration]
+  114 |            freeList(adj_nodes);
+      |            ^~~~~~~~
+      |            createList
+cc1: all warnings being treated as errors
+Compilation failed
+6438775
